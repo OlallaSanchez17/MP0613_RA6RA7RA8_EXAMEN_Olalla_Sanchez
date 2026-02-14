@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminPizzaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +32,22 @@ Route::controller(OrderController::class)->group(function () {
 
 Route::controller(PizzaController::class)->group(function () {
     Route::get('/pizzas', 'index')->name('pizzas.index');
-    Route::get('/pizzas/create', 'create')->name('pizzas.create');
-    Route::post('/pizzas', 'store')->name('pizzas.store');
     Route::get('/pizzas/{id}', 'show')->name('pizzas.show');
-    Route::delete('/pizzas/{id}', 'destroy')->name('pizzas.destroy');
+});
+
+// Admin Routes
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    
+    Route::controller(AdminPizzaController::class)->group(function () {
+        Route::get('/pizzas', 'index')->name('admin.pizzas.index');
+        Route::get('/pizzas/create', 'create')->name('admin.pizzas.create');
+        Route::post('/pizzas', 'store')->name('admin.pizzas.store');
+        Route::get('/pizzas/{id}', 'show')->name('admin.pizzas.show');
+        Route::get('/pizzas/{id}/edit', 'edit')->name('admin.pizzas.edit');
+        Route::put('/pizzas/{id}', 'update')->name('admin.pizzas.update');
+        Route::delete('/pizzas/{id}', 'destroy')->name('admin.pizzas.destroy');
+    });
 });
 
 $blackList = [

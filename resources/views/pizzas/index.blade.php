@@ -4,12 +4,7 @@
 
 @section('content')
     <div class="pizza-list-background">
-        <div class="container">
-        <div class="d-flex align-items-center justify-content-between mb-3">
-            <h1 class="h3 mb-0">Pizza <span class="text-danger">List</span></h1>
-            <a class="btn btn-primary" href="{{ route('pizzas.create') }}"><i class="fa-solid fa-plus"></i> Add Pizza</a>
-        </div>
-
+        <div class="container"> 
         <div class="card shadow-sm">
             <div class="card-body">
                 @if(count($pizzas) > 0)
@@ -17,19 +12,17 @@
                         <table class="table table-hover align-middle">
                             <thead class="table-light">
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col"><i class="fas fa-pizza-slice"></i> Name</th>
                                 <th scope="col"><i class="fa fa-tag"></i> Type</th>
                                 <th scope="col"><i class="fa fa-layer-group"></i> Base</th>
                                 <th scope="col"><i class="fa fa-coins"></i> Price</th>
                                 <th scope="col"><i class="fa fa-image"></i> Image</th>
-                                <th scope="col" class="text-end"><i class="fa fa-link"></i> Go</th>
+                                <th scope="col"><i class="fa fa-info-circle"></i> More info</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($pizzas as $key => $pizza)
                                 <tr>
-                                    <th scope="row">{{ $key + 1 }}</th>
                                     <td>{{ $pizza->name  }}</td>
                                     <td>{{ $pizza->type }}</td>
                                     <td>{{ $pizza->base  }}</td>
@@ -39,11 +32,11 @@
                                             <img class="rounded" src="{{ $pizza->image_url }}" alt="Pizza image" style="max-width: 60px; height: auto;">
                                         @endif
                                     </td>
-                                    <td class="text-end">
-                                        <a class="btn btn-sm btn-outline-warning"
+                                    <td >
+                                        <a class="btn btn-sm btn-outline-info"
                                            href="{{ route('pizzas.show', $pizza->id) }}"
-                                           title="See order details">
-                                            <i class="fa fa-link"></i>
+                                           title="See pizza details">
+                                            <i class="fa fa-info"></i>
                                         </a>
                                     </td>
                                 </tr>

@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::latest()->get();
+        $orders = Order::where('user_id', Auth::id())->latest()->get();
 
         return view('orders.pizzas.index', ['orders' => $orders]);
     }

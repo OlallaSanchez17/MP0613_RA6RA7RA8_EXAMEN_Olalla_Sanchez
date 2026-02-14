@@ -19,12 +19,11 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col"><i class="fa fa-calendar"></i> Order Date</th>
-                                <th scope="col"><i class="fa fa-user"></i> User ID</th>
-                                <th scope="col"><i class="fa fa-flag"></i> Order Type</th>
-                                <th scope="col"><i class="fa fa-deaf"></i> Order Base</th>
+                                <th scope="col"><i class="fa fa-flag"></i> Type</th>
+                                <th scope="col"><i class="fa fa-deaf"></i> Base</th>
                                 <th scope="col"><i class="fa fa-coins"></i> Price</th>
                                 <th scope="col"><i class="fa fa-image"></i> Image</th>
-                                <th scope="col" class="text-end"><i class="fa fa-link"></i> Go</th>
+                                <th scope="col" class="text-end"><i class="fa fa-info"></i> Details</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,7 +36,6 @@
                                         <i class="fa fa-clock"></i>
                                         {{ $order->created_at->format('H:i:s') }}
                                     </td>
-                                    <td>{{ $order->user_id }}</td>
                                     <td>{{ $order->type }}</td>
                                     <td>{{ $order->base }}</td>
                                     <td>{{ $order->price }}</td>

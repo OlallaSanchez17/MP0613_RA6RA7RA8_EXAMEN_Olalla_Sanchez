@@ -17,8 +17,19 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'name' => 'Admin User',
+                'email' => 'admin@pizzeria.com',
+                'role' => 'admin',
+                'email_verified_at' => now(),
+                'password' => Hash::make('admin123'),
+                'remember_token' => null,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => 'Alice Johnson',
                 'email' => 'alice@example.com',
+                'role' => 'client',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => null,
@@ -28,6 +39,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Bob Smith',
                 'email' => 'bob@example.com',
+                'role' => 'client',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => null,
@@ -37,6 +49,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Carol Davis',
                 'email' => 'carol@example.com',
+                'role' => 'client',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => null,
@@ -46,6 +59,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'David Lee',
                 'email' => 'david@example.com',
+                'role' => 'client',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => null,
@@ -55,6 +69,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Eva Martinez',
                 'email' => 'eva@example.com',
+                'role' => 'client',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => null,
